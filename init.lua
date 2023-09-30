@@ -320,6 +320,7 @@ require('nvim-treesitter.configs').setup {
 
   highlight = { enable = true },
   indent = { enable = true },
+  -- TODO better mappings for these
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -398,6 +399,7 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
+  -- TODO intelliJ key bindings
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
@@ -493,6 +495,7 @@ local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
+-- TODO some keys here need to be configured to match intelliJ behavour (tab replace, enter add, c-j/c-k and up/down select, c-space expand)
 cmp.setup {
   snippet = {
     expand = function(args)
