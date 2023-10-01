@@ -147,11 +147,11 @@ require('lazy').setup({
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
     opts = {
-      options = {
-        icons_enabled = true,
-        component_separators = '|',
-        section_separators = '',
-      },
+      -- options = {
+      --   icons_enabled = true,
+      --   component_separators = '|',
+      --   section_separators = '',
+      -- },
     },
   },
 
@@ -209,7 +209,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -399,7 +399,6 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-  -- TODO intelliJ key bindings
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
@@ -426,6 +425,7 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
+  require('haja.intellij_keymap').lsp(nmap)
 end
 
 -- document existing key chains
@@ -538,7 +538,7 @@ cmp.setup {
 }
 
 -- custom configs
-vim.cmd.colorscheme("desert")
+require('haja')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
