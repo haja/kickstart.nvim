@@ -4,5 +4,6 @@
 -- See the kickstart.nvim README for more information
 return {
   { "mbbill/undotree" },
-  { "github/copilot.vim"},
+  { "github/copilot.vim" },
+  { "lambdalisue/suda.vim" },
 }
