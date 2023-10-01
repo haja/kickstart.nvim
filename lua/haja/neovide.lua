@@ -1,5 +1,8 @@
 
-vim.o.guifont = "Iosevka SS12 Extended:h10"
+-- list fonts: set guifont=*
+--vim.o.guifont = "Iosevka Fixed SS12 Extended:h10"
+--vim.o.guifont = "JetBrainsMono:h10"
+vim.o.guifont = "Iosevka Fixed SS12 Xlt Ex:h10"
 
 --vim.g.neovide_transparency = 0.9
 vim.g.neovide_floating_blur_amount_x = 2.0
