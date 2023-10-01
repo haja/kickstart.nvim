@@ -147,6 +147,11 @@ require('lazy').setup({
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
     opts = {
+      sections = {
+        lualine_a = {
+            { 'mode', fmt = function(str) if str == "NORMAL" then return "N" else return str:sub(1,3) end end }
+        },
+      },
       -- options = {
       --   icons_enabled = true,
       --   component_separators = '|',
@@ -278,12 +283,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
-    mappings = {
-      i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
-      },
-    },
+    winblend = 20,
   },
 }
 
