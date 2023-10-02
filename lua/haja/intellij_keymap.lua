@@ -6,9 +6,13 @@ return {
     end
 
     vim.keymap.set('n', '<C-e>', telescope.oldfiles, { desc = '[C-e] Find recently opened files' })
-    vim.keymap.set('n', '<C-h>', telescope.live_grep, { desc = '[C-h] Grep in files' })
     vim.keymap.set('n', '<M-Left>', '<C-o>', { desc = '[M-Left] Jump back' })
     vim.keymap.set('n', '<M-Right>', '<C-i>', { desc = '[M-Right] Jump forward' })
+
+    vim.keymap.set('n', '<C-h>', telescope.live_grep, { desc = '[C-h] Grep in files' }) -- TODO grep from project/.git root
+
+    nmap('<C-S-R>', telescope.git_files, 'List Git files')
+    nmap('<C-S-A>', telescope.commands, 'User Commands/[A]ctions')
   end,
 
   lsp = function(nmap)
